@@ -1,4 +1,4 @@
-package com.github.bbugdigger.runcustomexecutables.runconfig
+package com.github.bbugdigger.runcustomexecutables
 
 import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.CommandLineState

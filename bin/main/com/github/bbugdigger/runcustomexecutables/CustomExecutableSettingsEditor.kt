@@ -1,4 +1,4 @@
-package com.github.bbugdigger.runcustomexecutables.runconfig
+package com.github.bbugdigger.runcustomexecutables
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.options.SettingsEditor
@@ -18,7 +18,7 @@ import javax.swing.JComponent
  * Settings editor UI for the Custom Executable run configuration.
  * Follows IntelliJ UI Guidelines.
  */
-class CustomExecutableSettingsEditor(private val project: Project) : SettingsEditor<CustomExecutableRunConfiguration>() {
+class CustomExecutableSettingsEditor(private val project: Project) : com.intellij.openapi.options.SettingsEditor<CustomExecutableRunConfiguration>() {
 
     private val executableTypeComboBox = ComboBox(DefaultComboBoxModel(arrayOf(
         ExecutableChoice.RUSTC,

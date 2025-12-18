@@ -1,4 +1,4 @@
-package com.github.bbugdigger.runcustomexecutables.runconfig
+package com.github.bbugdigger.runcustomexecutables
 
 import com.intellij.execution.Executor
 import com.intellij.execution.configurations.*
@@ -14,7 +14,7 @@ class CustomExecutableRunConfiguration(
     project: Project,
     factory: ConfigurationFactory,
     name: String
-) : RunConfigurationBase<CustomExecutableRunConfigurationOptions>(project, factory, name) {
+) : com.intellij.execution.configurations.RunConfigurationBase<CustomExecutableRunConfigurationOptions>(project, factory, name) {
 
     override fun getOptions(): CustomExecutableRunConfigurationOptions {
         return super.getOptions() as CustomExecutableRunConfigurationOptions

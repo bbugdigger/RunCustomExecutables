@@ -21,6 +21,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Register the custom executable run configuration type -->
         <configurationType 
-            implementation="com.github.bbugdigger.runcustomexecutables.runconfig.CustomExecutableConfigurationType"/>
+            implementation="com.github.bbugdigger.runcustomexecutables.CustomExecutableConfigurationType"/>
     </extensions>
 </idea-plugin>
