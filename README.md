@@ -1,6 +1,13 @@
 # Run Custom Executables
 
+<!-- Plugin description -->
 An IntelliJ Platform plugin that adds a simple Run Configuration to run custom executables.
+
+A simple Run Configuration plugin to run custom executables with the following features:
+- Run predefined executables: Rust Compiler (rustc) or Cargo from PATH
+- Run any custom executable from your local filesystem
+- Pass arguments to the executable
+<!-- Plugin description end -->
 
 ## Demo Video
 
