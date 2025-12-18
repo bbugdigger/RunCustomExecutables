@@ -27,22 +27,17 @@ class CustomExecutableCommandLineState(
         }
 
         val commandLine = GeneralCommandLine()
-        
-        // Set the executable
         commandLine.exePath = executablePath
         
-        // Parse and add program arguments
         val arguments = configuration.programArguments
         if (arguments.isNotBlank()) {
             val parsedArgs = ParametersListUtil.parse(arguments)
             commandLine.addParameters(parsedArgs)
         }
-        
-        // Create and configure process handler
-        val processHandler = ProcessHandlerFactory.getInstance()
-            .createColoredProcessHandler(commandLine)
-        
-        // Attach listener to handle process termination
+
+        //https://plugins.jetbrains.com/docs/intellij/execution.html#process-handler
+        //now this is for monitoring the execution of a process and capturing its output
+        val processHandler = ProcessHandlerFactory.getInstance().createColoredProcessHandler(commandLine)
         ProcessTerminatedListener.attach(processHandler)
         
         return processHandler
