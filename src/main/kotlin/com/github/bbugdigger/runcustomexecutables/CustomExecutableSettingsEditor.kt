@@ -6,7 +6,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.ui.RawCommandLineEditor
-import com.intellij.ui.components.JBLabel
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.Row
 import com.intellij.ui.dsl.builder.RowLayout
@@ -16,9 +15,12 @@ import javax.swing.JComponent
 
 /**
  * Settings editor UI for the Custom Executable run configuration.
- * Follows IntelliJ UI Guidelines.
+ *
+ * https://plugins.jetbrains.com/docs/intellij/run-configurations.html#settingseditor
+ *
+ * A run configuration may allow editing its general settings and settings specific to a program runner.
  */
-class CustomExecutableSettingsEditor(private val project: Project) : com.intellij.openapi.options.SettingsEditor<CustomExecutableRunConfiguration>() {
+class CustomExecutableSettingsEditor(private val project: Project) : SettingsEditor<CustomExecutableRunConfiguration>() {
 
     private val executableTypeComboBox = ComboBox(DefaultComboBoxModel(arrayOf(
         ExecutableChoice.RUSTC,
@@ -32,7 +34,6 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
     private lateinit var customExecutableRow: Row
 
     init {
-        // Set up file chooser for custom executable
         customExecutableField.addBrowseFolderListener(
             "Select Executable",
             "Choose the executable file to run",
@@ -40,7 +41,6 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
             FileChooserDescriptorFactory.createSingleFileDescriptor()
         )
 
-        // Listen to combo box changes to show/hide custom path field
         executableTypeComboBox.addActionListener {
             updateCustomExecutableVisibility()
         }
@@ -56,7 +56,6 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
     }
 
     override fun resetEditorFrom(config: CustomExecutableRunConfiguration) {
-        // Set executable type
         val choice = when (config.executableType) {
             "rustc" -> ExecutableChoice.RUSTC
             "cargo" -> ExecutableChoice.CARGO
@@ -64,17 +63,14 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
         }
         executableTypeComboBox.selectedItem = choice
         
-        // Set custom executable path
         customExecutableField.text = config.customExecutablePath
         
-        // Set program arguments
         programArgumentsEditor.text = config.programArguments
 
         updateCustomExecutableVisibility()
     }
 
     override fun applyEditorTo(config: CustomExecutableRunConfiguration) {
-        // Apply executable type
         val choice = executableTypeComboBox.selectedItem as ExecutableChoice
         config.executableType = when (choice) {
             ExecutableChoice.RUSTC -> "rustc"
@@ -82,10 +78,8 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
             ExecutableChoice.CUSTOM -> "custom"
         }
         
-        // Apply custom executable path
         config.customExecutablePath = customExecutableField.text
         
-        // Apply program arguments
         config.programArguments = programArgumentsEditor.text
     }
 
@@ -112,9 +106,6 @@ class CustomExecutableSettingsEditor(private val project: Project) : com.intelli
         }
     }
 
-    /**
-     * Enum representing the available executable choices in the dropdown.
-     */
     enum class ExecutableChoice(private val displayName: String) {
         RUSTC("Rust Compiler (rustc)"),
         CARGO("Cargo"),

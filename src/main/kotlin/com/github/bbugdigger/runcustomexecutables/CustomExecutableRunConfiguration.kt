@@ -53,6 +53,8 @@ class CustomExecutableRunConfiguration(
         return CustomExecutableSettingsEditor(project)
     }
 
+    // Executor class describes a specific way of executing run profiles
+    // ExecutionEnvironment object aggregates all the objects and settings required to execute the process
     override fun getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState {
         return CustomExecutableCommandLineState(this, environment)
     }

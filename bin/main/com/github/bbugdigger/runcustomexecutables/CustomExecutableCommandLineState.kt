@@ -10,8 +10,9 @@ import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.util.execution.ParametersListUtil
 
 /**
- * Handles the execution of the custom executable.
- * Creates the process and manages its lifecycle.
+ * Starts the execution of the custom executable.
+ *
+ * https://plugins.jetbrains.com/docs/intellij/execution.html#run-profile-state
  */
 class CustomExecutableCommandLineState(
     private val configuration: CustomExecutableRunConfiguration,
