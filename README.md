@@ -69,7 +69,7 @@ build/distributions/RunCustomExecutables-0.0.1.zip
 
 5. Navigate to the built plugin file:
 
-6. Click **OK** and **restart the IDE** when prompted
+6. Click **OK**
 
 ## Usage
 
