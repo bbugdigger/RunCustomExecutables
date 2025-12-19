@@ -10,12 +10,6 @@ import com.intellij.openapi.util.NotNullLazyValue
 /**
  * This is the entry point for the run configuration:
  * https://plugins.jetbrains.com/docs/intellij/run-configurations.html#configurationtype
- *
- * It appears in the "Add New Run Configuration" dialog in IntelliJ.
- * 
- * Uses SimpleConfigurationType since we only have a single configuration factory.
- * SimpleConfigurationType acts as both the configuration type AND the factory,
- * eliminating the need for a separate factory class.
  */
 class CustomExecutableConfigurationType : SimpleConfigurationType(
     "CustomExecutableRunConfiguration",
@@ -23,7 +17,6 @@ class CustomExecutableConfigurationType : SimpleConfigurationType(
     "Run a custom executable",
     NotNullLazyValue.createValue { AllIcons.RunConfigurations.Application }
 ) {
-
     /**
      * Creates a new template run configuration within the context of the specified project.
      * This method is called once for each project to create the run configuration template.
