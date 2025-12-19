@@ -47,16 +47,6 @@ cd RunCustomExecutables
 ./gradlew build
 ```
 
-The build process will:
-- Compile the Kotlin source code
-- Run tests
-- Package the plugin into a distributable ZIP file
-
-After a successful build, the plugin ZIP file will be located at:
-```
-build/distributions/RunCustomExecutables-0.0.1.zip
-```
-
 ### 3. Install the Plugin in RustRover (or any JetBrains IDE)
 
 1. Open **RustRover** (or IntelliJ IDEA, CLion, etc.)
