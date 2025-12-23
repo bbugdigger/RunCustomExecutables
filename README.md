@@ -13,8 +13,6 @@ A simple Run Configuration plugin to run custom executables with the following f
 
 https://github.com/user-attachments/assets/ea7475b9-e85f-4a54-96ee-15d509e37e07
 
-A simple Run Configuration plugin to run custom executables.
-
 ### Features:
 - Run predefined executables: Rust Compiler (rustc) or Cargo from PATH
 - Run any custom executable from your local filesystem
@@ -22,15 +20,15 @@ A simple Run Configuration plugin to run custom executables.
 
 ### Versions and tools I have used for development and testing
 
-- **JDK 21** or later
-- **Gradle 9.2+**
+- **JDK 21**
+- **Gradle 9.2**
 - **IntelliJ IDEA** / **RustRover**
 
 ## Getting Started
 
 ### 1. Clone the Repository
 
-```bash
+```
 git clone https://github.com/bbugdigger/RunCustomExecutables.git
 cd RunCustomExecutables
 ```
