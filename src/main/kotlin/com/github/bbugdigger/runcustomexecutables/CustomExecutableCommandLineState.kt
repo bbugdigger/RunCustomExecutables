@@ -15,7 +15,7 @@ import com.intellij.util.execution.ParametersListUtil
  * https://plugins.jetbrains.com/docs/intellij/execution.html#run-profile-state
  */
 class CustomExecutableCommandLineState(
-    private val configuration: CustomExecutableRunConfiguration,
+    private val configuration: CustomExeRunConfiguration,
     environment: ExecutionEnvironment
 ) : CommandLineState(environment) {
 

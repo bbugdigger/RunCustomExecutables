@@ -7,11 +7,7 @@ import com.intellij.openapi.components.BaseState
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.NotNullLazyValue
 
-/**
- * This is the entry point for the run configuration:
- * https://plugins.jetbrains.com/docs/intellij/run-configurations.html#configurationtype
- */
-class CustomExecutableConfigurationType : SimpleConfigurationType(
+class CustomExeRunConfigurationType : SimpleConfigurationType(
     "CustomExecutableRunConfiguration",
     "Custom Executable",
     "Run a custom executable",
@@ -25,15 +21,10 @@ class CustomExecutableConfigurationType : SimpleConfigurationType(
      * @return a new run configuration instance
      */
     override fun createTemplateConfiguration(project: Project): RunConfiguration {
-        return CustomExecutableRunConfiguration(project, this, "Custom Executable")
+        return CustomExeRunConfiguration(project, this, "Custom Executable")
     }
 
-    /**
-     * Returns the options class used to store the run configuration settings.
-     *
-     * @return the options class
-     */
     override fun getOptionsClass(): Class<out BaseState> {
-        return CustomExecutableRunConfigurationOptions::class.java
+        return CustomExeRunConfigurationOptions::class.java
     }
 }

@@ -11,14 +11,14 @@ import com.intellij.openapi.project.Project
  *
  * https://plugins.jetbrains.com/docs/intellij/run-configurations-tutorial.html#implement-a-runconfiguration
  */
-class CustomExecutableRunConfiguration(
+class CustomExeRunConfiguration(
     project: Project,
     factory: ConfigurationFactory,
     name: String
-) : RunConfigurationBase<CustomExecutableRunConfigurationOptions>(project, factory, name) {
+) : RunConfigurationBase<CustomExeRunConfigurationOptions>(project, factory, name) {
 
-    override fun getOptions(): CustomExecutableRunConfigurationOptions {
-        return super.getOptions() as CustomExecutableRunConfigurationOptions
+    override fun getOptions(): CustomExeRunConfigurationOptions {
+        return super.getOptions() as CustomExeRunConfigurationOptions
     }
 
     // Executable type: "rustc", "cargo", or "custom"

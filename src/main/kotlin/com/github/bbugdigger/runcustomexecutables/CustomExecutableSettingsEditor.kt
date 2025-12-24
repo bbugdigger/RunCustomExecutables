@@ -20,7 +20,7 @@ import javax.swing.JComponent
  *
  * A run configuration may allow editing its general settings and settings specific to a program runner.
  */
-class CustomExecutableSettingsEditor(private val project: Project) : SettingsEditor<CustomExecutableRunConfiguration>() {
+class CustomExecutableSettingsEditor(private val project: Project) : SettingsEditor<CustomExeRunConfiguration>() {
 
     private val executableTypeComboBox = ComboBox(DefaultComboBoxModel(arrayOf(
         ExecutableChoice.RUSTC,
@@ -55,7 +55,7 @@ class CustomExecutableSettingsEditor(private val project: Project) : SettingsEdi
         }
     }
 
-    override fun resetEditorFrom(config: CustomExecutableRunConfiguration) {
+    override fun resetEditorFrom(config: CustomExeRunConfiguration) {
         val choice = when (config.executableType) {
             "rustc" -> ExecutableChoice.RUSTC
             "cargo" -> ExecutableChoice.CARGO
@@ -70,7 +70,7 @@ class CustomExecutableSettingsEditor(private val project: Project) : SettingsEdi
         updateCustomExecutableVisibility()
     }
 
-    override fun applyEditorTo(config: CustomExecutableRunConfiguration) {
+    override fun applyEditorTo(config: CustomExeRunConfiguration) {
         val choice = executableTypeComboBox.selectedItem as ExecutableChoice
         config.executableType = when (choice) {
             ExecutableChoice.RUSTC -> "rustc"
