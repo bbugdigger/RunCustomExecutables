@@ -13,13 +13,6 @@ import com.intellij.ui.dsl.builder.panel
 import javax.swing.DefaultComboBoxModel
 import javax.swing.JComponent
 
-/**
- * Settings editor UI for the Custom Executable run configuration.
- *
- * https://plugins.jetbrains.com/docs/intellij/run-configurations.html#settingseditor
- *
- * A run configuration may allow editing its general settings and settings specific to a program runner.
- */
 class CustomExeSettingsEditor(private val project: Project) : SettingsEditor<CustomExeRunConfiguration>() {
 
     private val executableTypeComboBox = ComboBox(DefaultComboBoxModel(arrayOf(
