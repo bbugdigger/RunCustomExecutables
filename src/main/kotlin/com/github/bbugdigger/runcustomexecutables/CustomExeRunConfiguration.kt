@@ -6,11 +6,6 @@ import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.openapi.options.SettingsEditor
 import com.intellij.openapi.project.Project
 
-/**
- * To make your changes visible from the UI, implement a new run configuration.
- *
- * https://plugins.jetbrains.com/docs/intellij/run-configurations-tutorial.html#implement-a-runconfiguration
- */
 class CustomExeRunConfiguration(
     project: Project,
     factory: ConfigurationFactory,
@@ -35,7 +30,7 @@ class CustomExeRunConfiguration(
         set(value) { options.programArguments = value }
 
 
-    fun getResolvedExecutablePath(): String {
+    fun getCustomExecutablePath(): String {
         return when (executableType) {
             "rustc" -> "rustc"
             "cargo" -> "cargo"
@@ -43,20 +38,12 @@ class CustomExeRunConfiguration(
         }
     }
 
-    /**
-     * https://plugins.jetbrains.com/docs/intellij/run-configurations.html#settingseditor
-     *
-     * A run configuration may allow editing its general settings and settings specific to a program runner.
-     * getConfigurationEditor() -> for editing run configuration settings
-     */
     override fun getConfigurationEditor(): SettingsEditor<out RunConfiguration> {
-        return CustomExecutableSettingsEditor(project)
+        return CustomExeSettingsEditor(project)
     }
 
-    // Executor class describes a specific way of executing run profiles
-    // ExecutionEnvironment object aggregates all the objects and settings required to execute the process
     override fun getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState {
-        return CustomExecutableCommandLineState(this, environment)
+        return CustomExeCommandLineState(this, environment)
     }
 
     override fun checkConfiguration() {
@@ -65,4 +52,3 @@ class CustomExeRunConfiguration(
         }
     }
 }
-

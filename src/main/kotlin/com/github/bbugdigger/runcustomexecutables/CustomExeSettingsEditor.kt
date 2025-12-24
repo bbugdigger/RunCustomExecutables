@@ -20,7 +20,7 @@ import javax.swing.JComponent
  *
  * A run configuration may allow editing its general settings and settings specific to a program runner.
  */
-class CustomExecutableSettingsEditor(private val project: Project) : SettingsEditor<CustomExeRunConfiguration>() {
+class CustomExeSettingsEditor(private val project: Project) : SettingsEditor<CustomExeRunConfiguration>() {
 
     private val executableTypeComboBox = ComboBox(DefaultComboBoxModel(arrayOf(
         ExecutableChoice.RUSTC,

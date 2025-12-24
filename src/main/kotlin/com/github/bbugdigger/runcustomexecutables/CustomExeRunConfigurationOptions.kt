@@ -2,10 +2,6 @@ package com.github.bbugdigger.runcustomexecutables
 
 import com.intellij.execution.configurations.RunConfigurationOptions
 
-/**
- * Stores the run configuration options/settings.
- * Uses property delegation for automatic persistence.
- */
 class CustomExeRunConfigurationOptions : RunConfigurationOptions() {
     
     private val _executableType = string("custom").provideDelegate(this, "executableType")

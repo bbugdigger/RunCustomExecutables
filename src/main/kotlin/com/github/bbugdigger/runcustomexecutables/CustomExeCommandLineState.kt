@@ -14,13 +14,13 @@ import com.intellij.util.execution.ParametersListUtil
  *
  * https://plugins.jetbrains.com/docs/intellij/execution.html#run-profile-state
  */
-class CustomExecutableCommandLineState(
+class CustomExeCommandLineState(
     private val configuration: CustomExeRunConfiguration,
     environment: ExecutionEnvironment
 ) : CommandLineState(environment) {
 
     override fun startProcess(): ProcessHandler {
-        val executablePath = configuration.getResolvedExecutablePath()
+        val executablePath = configuration.getCustomExecutablePath()
         
         if (executablePath.isBlank()) {
             throw ExecutionException("Executable path is not specified")
