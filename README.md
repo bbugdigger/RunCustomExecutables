@@ -13,12 +13,7 @@ A simple Run Configuration plugin to run custom executables with the following f
 
 https://github.com/user-attachments/assets/ea7475b9-e85f-4a54-96ee-15d509e37e07
 
-### Features:
-- Run predefined executables: Rust Compiler (rustc) or Cargo from PATH
-- Run any custom executable from your local filesystem
-- Pass arguments to the executable
-
-### Versions and tools I have used for development and testing
+## Versions and tools I have used for development and testing
 
 - **JDK 21**
 - **Gradle 9.2**
@@ -45,29 +40,27 @@ cd RunCustomExecutables
 ./gradlew build
 ```
 
-### 3. Install the Plugin in RustRover (or any JetBrains IDE)
+### 3. Install the Plugin in RustRover
 
-1. Open **RustRover** (or IntelliJ IDEA, CLion, etc.)
+1. Open **RustRover** (or any JetBrains IDE)
 
-2. Go to **Settings/Preferences**: `File → Settings → Plugins`
+2. Go to **Settings/Preferences**: `File -> Settings -> Plugins`
 
 3. Click the **gear icon** next to the search bar
 
-4. Select **"Install Plugin from Disk..."**
+4. Select **"Install Plugin from Disk"**
 
-5. Navigate to the built plugin file:
-
-6. Click **OK**
+5. Navigate to the built plugin file and click OK
 
 ## Usage
 
 1. Open any project in RustRover
 
-2. Go to **Run → Edit Configurations...**
+2. Go to **Run -> Edit Configurations**
 
-3. Click the **+ (Add)** button
+3. Click the **Add new run configuration**
 
-4. Select **"Custom Executable"** from the list
+4. Select **Custom Executable** from the list
 
 5. Configure your run configuration:
    - **Executable**: Choose from:
@@ -77,21 +70,4 @@ cd RunCustomExecutables
    - **Executable path**: (shown when "Custom Executable" is selected) Browse to select your executable
    - **Program arguments**: Command-line arguments to pass to the executable
 
-6. Click **Run** or **Debug** to execute
-
-## Development
-
-### Run the Plugin in a Sandbox IDE
-
-To test the plugin during development without installing it:
-
-```
-# Windows
-.\gradlew.bat runIde
-
-# macOS/Linux
-./gradlew runIde
-```
-
-This launches a sandboxed instance of IntelliJ IDEA with the plugin loaded.
-
+6. Click **Run** to execute
