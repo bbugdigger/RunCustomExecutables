@@ -30,7 +30,7 @@ class CustomExeRunConfiguration(
         set(value) { options.programArguments = value }
 
 
-    fun getCustomExecutablePath(): String {
+    fun getResolvedExecutablePath(): String {
         return when (executableType) {
             "rustc" -> "rustc"
             "cargo" -> "cargo"

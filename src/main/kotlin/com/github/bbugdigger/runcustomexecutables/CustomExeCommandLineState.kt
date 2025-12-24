@@ -20,7 +20,7 @@ class CustomExeCommandLineState(
 ) : CommandLineState(environment) {
 
     override fun startProcess(): ProcessHandler {
-        val executablePath = configuration.getCustomExecutablePath()
+        val executablePath = configuration.getResolvedExecutablePath()
         
         if (executablePath.isBlank()) {
             throw ExecutionException("Executable path is not specified")
